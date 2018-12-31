@@ -1,0 +1,13 @@
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\MySQLAC.exe.config
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\MySQLAC.exe
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\MySQLAC.pdb
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\MySql.Data.dll
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\Google.Protobuf.dll
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\bin\Debug\MySql.Data.xml
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.csprojAssemblyReference.cache
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.Properties.Resources.resources
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.csproj.GenerateResource.cache
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.csproj.CoreCompileInputs.cache
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.csproj.CopyComplete
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.exe
+C:\Users\Marce\source\repos\MySQLAC\MySQLAC\obj\Debug\MySQLAC.pdb
