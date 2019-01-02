@@ -16,7 +16,8 @@ namespace MySQLAC
         {
             InitializeComponent();
             Conexion c = new Conexion();
-            c.Insert();
+            DataTable dt = c.Ejecutar("SELECT nombre FROM persona WHERE id=1");
+            MessageBox.Show(dt.Rows[0][0].ToString());
         }
     }
 }

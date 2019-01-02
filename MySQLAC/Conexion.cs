@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient; //esta es una referencia al conector de MySQL para NET que debe descargarse con anterioridad
+using MySql.Data.MySqlClient; //esta es una referencia al conector de MySQL para NET que debe descargarse e instalarse con anterioridad
 
 namespace MySQLAC
 {
@@ -15,6 +16,9 @@ namespace MySQLAC
         private string database; //el nombre de la base de datos
         private string uid; //el nombre del usuario accediendo a la bd
         private string password; // la constrasenia del usuario accediendo a la bd
+
+        private MySqlCommand command; // para hacer queries no-select
+        private MySqlDataReader reader; //para hacer queries de select
 
 
         public Conexion()
@@ -46,19 +50,14 @@ namespace MySQLAC
             }
             catch (MySqlException ex)
             {
-                //When handling errors, you can your application's response based 
-                //on the error number.
-                //The two most common error numbers when connecting are as follows:
-                //0: Cannot connect to server.
-                //1045: Invalid user name and/or password.
                 switch (ex.Number)
                 {
                     case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        MessageBox.Show("No se puede conectar con el servidor. Contacete al administrador");
                         break;
 
                     case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
+                        MessageBox.Show("Usuario o clave invalidos, reintente");
                         break;
                 }
                 return false;
@@ -81,23 +80,26 @@ namespace MySQLAC
         }
 
 
-
-        public void Insert()
+        public DataTable Ejecutar(String query)
         {
-            string query = "INSERT INTO persona  VALUES(NULL, 'Marcelo')";
+            Console.WriteLine("QUERY=" + query);
+            DataTable dt = null;
 
-            //open connection
-            if (this.OpenConnection() == true)
+            this.OpenConnection();
+            command = new MySqlCommand(query,connection);
+
+            if (query.ToLower().Contains("select"))
             {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                //Execute command
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
+                reader = command.ExecuteReader();
+                dt = new DataTable();
+                dt.Load(reader);
             }
+            else
+            {
+                command.ExecuteNonQuery();
+            }
+            this.CloseConnection();
+            return dt;
         }
 
 
